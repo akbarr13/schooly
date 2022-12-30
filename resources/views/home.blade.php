@@ -12,10 +12,10 @@
                 <p class="leading-normal text-2xl mb-8">
                     We created this website to make it easier for you to manage students
                 </p>
-                <a href="/students" class="no-underline"><button 
-                    class="mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                    Look at student list!
-                </button></a>
+                <a href="/students" class="no-underline"><button
+                        class="mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                        Look at student list!
+                    </button></a>
             </div>
             <!--Right Col-->
             <div class="w-full md:w-3/5 py-6 text-center">

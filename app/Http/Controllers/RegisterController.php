@@ -23,17 +23,6 @@ class RegisterController extends Controller
             'password' => 'required|min:8|max:255'
         ]);
 
-        $checkEmail = User::where('email', $validatedData['email']);
-
-        $checkUsername = User::where('username', $validatedData['username']);
-
-        if ($checkEmail) {
-            return back()->with(['loginError', 'Email already exists']);
-        }
-        if ($checkUsername) {
-            return back()->with(['loginError', 'Username already exists']);
-        }
-
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
@@ -42,4 +31,5 @@ class RegisterController extends Controller
 
         return redirect('/login');
     }
+    
 }

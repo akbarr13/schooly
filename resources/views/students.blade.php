@@ -36,7 +36,7 @@
                                 <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                     <div class="flex px-2 py-1">
                                         <div>
-                                            <img src="https://picsum.photos/{{ mt_rand(200,210) }}"
+                                            <img src="{{ asset($student->image) }}"
                                                 class="inline-flex items-center justify-center mr-4 text-white transition-all duration-200 ease-soft-in-out text-sm h-9 w-9 rounded-xl"
                                                 alt="user1" />
                                         </div>

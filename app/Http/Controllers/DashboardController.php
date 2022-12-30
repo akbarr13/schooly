@@ -6,7 +6,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-
+use Intervention\Image\Facades\Image;
 
 
 class DashboardController extends Controller
@@ -21,16 +21,25 @@ class DashboardController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
             'major' => 'required|min:3',
-            'gender' => 'required|string'
+            'gender' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $credentials = [
+        // Retrieve the image from the request
+        $image = $request->file('image');
+
+        // Generate a unique file name
+        $fileName = time() . '.' . $image->getClientOriginalExtension();
+
+        // Save the image on the server
+        $path = $image->move('student-images', $fileName);
+
+        Student::create([
             'name' => $request->name,
             'major' => $request->major,
-            'gender' => $request->gender
-        ];
-
-        Student::create($credentials);
+            'gender' => $request->gender,
+            'image' => $path,
+        ]);
 
         return redirect('/students');
     }
@@ -39,9 +48,27 @@ class DashboardController extends Controller
     {
         $student = Student::findOrFail($id);
 
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'major' => 'required|min:3',
+            'gender' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Retrieve the image from the request
+        $image = $request->file('image');
+
+        // Generate a unique file name
+        $fileName = time() . '.' . $image->getClientOriginalExtension();
+
+        // Save the image on the server
+        $path = $image->move('student-images', $fileName);
+
         $student->name = $request->input('name');
         $student->major = $request->input('major');
         $student->gender = $request->input('gender');
+        $student->image = $path;
+
 
         $student->save();
 

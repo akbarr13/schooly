@@ -21,6 +21,14 @@ class DatabaseSeeder extends Seeder
         //    $students = Student::factory()->count(10)->create();
         $users = User::factory()->count(10)->create();
 
+        User::create([
+            'name' => 'admin',
+            'username' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin'),
+        ]);
+
+
         $students = Student::factory()->count(10)->create();
     }
 }
