@@ -8,6 +8,7 @@
     <title>{{ $title }} - Schooly</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/187/187880.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- CSS only -->
 
 </head>

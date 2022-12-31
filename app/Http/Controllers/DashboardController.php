@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Major;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Validator;
 
 
 class DashboardController extends Controller
@@ -50,7 +51,7 @@ class DashboardController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'major' => 'required|min:3',
+            'major_id' => 'required|min:3',
             'gender' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -65,7 +66,7 @@ class DashboardController extends Controller
         $path = $image->move('student-images', $fileName);
 
         $student->name = $request->input('name');
-        $student->major = $request->input('major');
+        $student->major_id = $request->input('major_id');
         $student->gender = $request->input('gender');
         $student->image = $path;
 
@@ -78,9 +79,10 @@ class DashboardController extends Controller
     public function show($id)
     {
         $student = Student::find($id);
+        $majors = Major::all();
         $title = 'Modify student';
 
-        return view('update', ['student' => $student, 'id' => $id, 'title' => $title]);
+        return view('update', ['title' => $title, 'student' => $student, 'majors' => $majors]);
     }
 
     public function destroy($id)
