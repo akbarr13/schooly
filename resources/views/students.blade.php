@@ -46,7 +46,7 @@
                                     </div>
                                 </td>
                                 <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                    <p class="mb-0 font-semibold leading-tight text-xs">{{ $student->major }}</p>
+                                    <p class="mb-0 font-semibold leading-tight text-xs">{{ $student->major->name }}</p>
                                 </td>
                                 <td
                                     class="p-2 leading-normal text-center align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent">

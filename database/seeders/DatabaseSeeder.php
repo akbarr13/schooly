@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\User;
+use App\Models\Major;
 use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Database\Factories\StudentFactory;
@@ -26,6 +27,22 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'),
+        ]);
+
+        Major::create([
+            'name' => 'Teknik Informatika',
+        ]);
+
+        Major::create([
+            'name' => 'Teknik Mesin',
+        ]);
+
+        Major::create([
+            'name' => 'Teknik Elektro',
+        ]);
+
+        Major::create([
+            'name' => 'Teknik Industri',
         ]);
 
 

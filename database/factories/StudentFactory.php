@@ -17,12 +17,11 @@ class StudentFactory extends Factory
     public function definition()
     {
 
-        $major = ['RPL', 'AKL', 'TKJ', 'BDP'];
         $gender = ['pria', 'wanita'];
 
         return [
             'name' => fake()->firstName(),
-            'major' => $major[mt_rand(0, 3)],
+            'major_id' => mt_rand(1, 4),
             'gender' => $gender[mt_rand(0, 1)],
         ];
     }
