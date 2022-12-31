@@ -13,13 +13,13 @@
                         placeholder="Masukkan nama" />
                 </div>
                 <div> <label for="email" class="text-sm text-gray-700 block mb-1 font-medium">Majority</label>
+                    
                     <select id="countries" name="major_id"
                         class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-1/3">
                         @foreach ($majors as $major)
                             <option @if ($major->id == $student->major_id) @selected(true) @endif value="{{ $major->id }}">
                                 {{ $major->name }}</option>
                         @endforeach
-
                     </select>
                 </div>
                 <div>
