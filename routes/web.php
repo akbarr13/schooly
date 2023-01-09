@@ -31,6 +31,8 @@ Route::post('/register', [RegisterController::class, 'register'])->middleware('g
 
 Route::get('/students', [StudentController::class, 'index']);
 
+Route::get('/students/major/{major}', [StudentController::class, 'major']);
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::post('/add-student', [DashboardController::class, 'store'])->middleware('auth');

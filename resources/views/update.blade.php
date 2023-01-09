@@ -13,7 +13,7 @@
                         placeholder="Masukkan nama" />
                 </div>
                 <div> <label for="email" class="text-sm text-gray-700 block mb-1 font-medium">Majority</label>
-                    
+
                     <select id="countries" name="major_id"
                         class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-1/3">
                         @foreach ($majors as $major)
@@ -32,7 +32,7 @@
                 </div>
                 <div>
                     <img class="w-20 h-20 rounded border border-gray-300"
-                        src="@if ($student->image == null) /student-images/default.jpg @else /{{ $student->image }} @endif"
+                        src="@if ($student->image == null) /student-images/default.jpg @else {{ $student->image }} @endif"
                         id="profile-img" alt="Profile Image">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-black" for="file_input">Upload
                         Image

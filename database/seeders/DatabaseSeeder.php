@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //    $students = Student::factory()->count(10)->create();
-        $users = User::factory()->count(10)->create();
+        // $users = User::factory()->count(10)->create();
 
         User::create([
             'name' => 'admin',
@@ -45,7 +45,26 @@ class DatabaseSeeder extends Seeder
             'name' => 'Teknik Industri',
         ]);
 
+        Major::create([
+            'name' => 'Teknik Kimia',
+        ]);
 
-        $students = Student::factory()->count(10)->create();
+        Major::create([
+            'name' => 'Teknik Lingkungan',
+        ]);
+
+        Major::create([
+            'name' => 'Teknik Sipil',
+        ]);
+
+
+        Major::create([
+            'name' => 'Teknik Geologi',
+        ]);
+
+        
+
+
+        $students = Student::factory()->count(20)->create();
     }
 }

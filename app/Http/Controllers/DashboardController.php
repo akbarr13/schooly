@@ -14,7 +14,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard', ['title' => 'Dashboard']);
+
+        $majors = Major::all();
+        return view('dashboard', ['title' => 'Dashboard', 'majors' => $majors]);
     }
 
     public function store(Request $request)
@@ -56,22 +58,27 @@ class DashboardController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Retrieve the image from the request
         $image = $request->file('image');
+        $input['imagename'] = time() . '.' . $image->extension();
 
-        // Generate a unique file name
-        $fileName = time() . '.' . $image->getClientOriginalExtension();
+        $filePath = public_path('/student-images');
+        $img = Image::make($image->path());
+        $img->resize(110, 110, function ($const) {
+            $const->aspectRatio();
+        })->save($filePath . '/' . $input['imagename']);
 
-        // Save the image on the server
-        $path = $image->move('student-images', $fileName);
+        $filePath = '/student-images';
+        $image->move($filePath, $input['imagename']);
 
         $student->name = $request->input('name');
         $student->major_id = $request->input('major_id');
         $student->gender = $request->input('gender');
-        $student->image = $path;
+        $student->image = $filePath.'/'.$input['imagename'];
 
 
         $student->save();
+
+        
 
         return redirect('/students');
     }

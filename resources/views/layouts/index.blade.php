@@ -20,7 +20,7 @@
         <h1 class="w-3/12">
             <a href="/" class="inline space-y-1">
                 <img class="inline mt-0 space-y-2 absolute" src="https://cdn-icons-png.flaticon.com/512/187/187880.png"
-                    width="30" height="">
+                    width="30" height="" alt="logo">
             </a>
             <a class="bold text-2xl items-center pt-1 ml-10" href="/"><b>Schooly</b></a>
         </h1>
