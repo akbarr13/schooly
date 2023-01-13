@@ -26,8 +26,8 @@
                     <label for="countries" class="text-sm text-gray-700 block mb-0 font-medium">Gender</label>
                     <select id="countries" name="gender"
                         class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-1/3">
-                        <option @if ($student->gender == 'laki-laki') @selected(true) @endif value="pria">Pria</option>
-                        <option @if ($student->gender == 'perempuan') @selected(true) @endif value="wanita">Wanita</option>
+                        <option @if ($student->gender == 'pria') @selected(true) @endif value="pria">Pria</option>
+                        <option @if ($student->gender == 'wanita') @selected(true) @endif value="wanita">Wanita</option>
                     </select>
                 </div>
                 <div>
@@ -39,7 +39,7 @@
                         File</label>
                     <input
                         class="block w-1/3 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        name="image" aria-describedby="file_input_help" id="file_input" type="file" required>
+                        name="image" aria-describedby="file_input_help" id="file_input" type="file">
                     <p class="mt-1 text-sm text-black-500" id="file_input_help">SVG, PNG, JPG or GIF.</p>
                 </div>
 

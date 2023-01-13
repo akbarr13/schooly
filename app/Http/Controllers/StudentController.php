@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Major;
 use App\Models\Student;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
-use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -24,6 +25,13 @@ class StudentController extends Controller
 
         return view('students', ['students' => $students, 'title' => $title]);
     }
+
+    public function showStudentApi($id)
+    {
+        $students = Student::where('id', $id)->get();
+        return response()->json($students);
+    }
+
 
     public function major($major)
     {

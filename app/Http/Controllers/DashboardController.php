@@ -55,30 +55,35 @@ class DashboardController extends Controller
             'name' => 'required|string',
             'major_id' => 'required|min:3',
             'gender' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $image = $request->file('image');
-        $input['imagename'] = time() . '.' . $image->extension();
 
-        $filePath = public_path('/student-images');
-        $img = Image::make($image->path());
-        $img->resize(110, 110, function ($const) {
-            $const->aspectRatio();
-        })->save($filePath . '/' . $input['imagename']);
+        if (!empty($request->image)) {
+            $image = $request->file('image');
+            $input['imagename'] = time() . '.' . $image->extension();
 
-        $filePath = '/student-images';
-        $image->move($filePath, $input['imagename']);
+            $filePath = public_path('/student-images');
+            $img = Image::make($image->path());
+            $img->resize(110, 110, function ($const) {
+                $const->aspectRatio();
+            })->save($filePath . '/' . $input['imagename']);
+
+            $filePath = '/student-images';
+            $image->move($filePath, $input['imagename']);
+            $student->image = $filePath . '/' . $input['imagename'];
+        }
+
 
         $student->name = $request->input('name');
         $student->major_id = $request->input('major_id');
         $student->gender = $request->input('gender');
-        $student->image = $filePath.'/'.$input['imagename'];
+
 
 
         $student->save();
 
-        
+
 
         return redirect('/students');
     }
