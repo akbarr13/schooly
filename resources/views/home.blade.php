@@ -175,25 +175,25 @@
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 text-black">Contact Us</h2>
             <p class="mb-8 lg:mb-16 font-medium text-center text-gray-700  sm:text-xl">Got a technical issue? Want to send
                 feedback about our feature? Need details about our feature? Let us know.</p>
-            <form action="#" class="space-y-8">
+            <form action="https://formsubmit.co/riegerlukas1945@gmail.com" method="POST" class="space-y-8">
+                @csrf
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your
                         email</label>
-                    <input type="email" id="email"
+                    <input type="email" id="email" name="email"
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 border-gray-600 placeholder-black focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
                         placeholder="name@email.com" required>
                 </div>
                 <div>
-                    <label for="subject"
-                        class="block mb-2 text-sm font-medium text-gray-900">Subject</label>
-                    <input type="text" id="subject"
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">Subject</label>
+                    <input type="text" id="subject" name="subject"
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 border-gray-600 placeholder-black focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
                         placeholder="Let us know how we can help you" required>
                 </div>
                 <div class="sm:col-span-2">
                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Your
                         message</label>
-                    <textarea id="message" rows="6"
+                    <textarea id="message" rows="6" name="message"
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 border-gray-600 placeholder-black focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
                         placeholder="Leave a comment..."></textarea>
                 </div>

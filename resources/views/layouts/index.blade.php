@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title }} - Schooly</title>
+    <title>{{ (empty($title)) ? "" : $title }} - Schooly</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/187/187880.png">
+    <link rel="icon" href="{{ asset('schooly.png') }}">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- CSS only -->
 
@@ -19,7 +19,7 @@
         <!-- logo -->
         <h1 class="w-3/12">
             <a href="/" class="inline space-y-1">
-                <img class="inline mt-0 space-y-2 absolute" src="https://cdn-icons-png.flaticon.com/512/187/187880.png"
+                <img class="inline mt-0 space-y-2 absolute" src="{{ asset('schooly.png') }}"
                     width="30" height="" alt="logo">
             </a>
             <a class="bold text-2xl items-center pt-1 ml-10" href="/"><b>Schooly</b></a>
@@ -30,15 +30,15 @@
         <nav class="nav font-semibold text-lg">
             <ul class="flex items-center">
                 <li
-                    class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
+                    class="p-4 border-b-2 border-blue-700 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
                     <a href="/">Home</a>
                 </li>
                 <li
-                    class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
+                    class="p-4 border-b-2 border-blue-700 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
                     <a href="/students">Student List</a>
                 </li>
                 <li
-                    class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+                    class="p-4 border-b-2 border-blue-700 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                     <a href="/dashboard">Dashboard</a>
                 </li>
                 </li>
@@ -58,7 +58,7 @@
                         alt="user photo">
                 </button>
                 <!-- Dropdown menu -->
-                <div class="z-50 hidden my-4 text-base list-none bg-emerald-300 divide-y divide-black rounded shadow dark:bg-white-700 dark:divide-white-600"
+                <div class="z-50 hidden my-4 text-base list-none bg-sky-300 divide-y divide-black rounded shadow dark:bg-white-700 dark:divide-white-600"
                     id="user-dropdown">
                     <div class="px-4 py-3">
                         <span class="block text-sm text-black-900 dark:text-gray">{{ auth()->user()->name }}</span>
@@ -67,16 +67,12 @@
                     </div>
                     <ul class="py-1" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="#"
+                            <a href="/dashboard"
                                 class="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:hover:bg-emerald-100 dark:text-black dark:hover:text-gray">Dashboard</a>
                         </li>
                         <li>
                             <a href="#"
                                 class="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:hover:bg-emerald-100 dark:text-black dark:hover:text-gray">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:hover:bg-emerald-100 dark:text-black dark:hover:text-gray">Earnings</a>
                         </li>
                         <li>
                             <form action="/logout" method="post">

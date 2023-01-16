@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
@@ -42,6 +43,8 @@ Route::put('/students/{id}', [DashboardController::class, 'update'])->middleware
 Route::get('/students/{id}', [DashboardController::class, 'show'])->middleware('auth');
 
 Route::delete('/student-remove/{id}', [DashboardController::class, 'destroy'])->middleware('auth');
+
+Route::post('/send-email', [EmailController::class, 'sendEmail'])->middleware('auth');
 
 
 

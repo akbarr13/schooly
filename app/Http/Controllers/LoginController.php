@@ -29,7 +29,7 @@ class LoginController extends Controller
         $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if (auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password']))) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->route('home');
         }
 
         return back()->with('loginError', 'Email or password is not valid !');
@@ -45,4 +45,7 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+
+    
+    
 }

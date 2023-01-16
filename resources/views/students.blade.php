@@ -66,7 +66,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="flex justify-center text-left mt-5">
+                <div class="align-content-center mt-5">
                     {{ $students->onEachSide(1)->links() }}
                 </div>
             </div>
