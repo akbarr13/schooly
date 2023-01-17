@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ (empty($title)) ? "" : $title }} - Schooly</title>
+    <title>{{ empty($title) ? '' : $title }} | Schooly</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="{{ asset('schooly.png') }}">
+    <link rel="icon" href="{{ asset('icon.png') }}">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- CSS only -->
 
@@ -19,8 +19,8 @@
         <!-- logo -->
         <h1 class="w-3/12">
             <a href="/" class="inline space-y-1">
-                <img class="inline mt-0 space-y-2 absolute" src="{{ asset('schooly.png') }}"
-                    width="30" height="" alt="logo">
+                <img class="inline mt-0 space-y-2 absolute" src="{{ asset('schooly.png') }}" width="30"
+                    height="" alt="logo">
             </a>
             <a class="bold text-2xl items-center pt-1 ml-10" href="/"><b>Schooly</b></a>
         </h1>
