@@ -19,11 +19,11 @@
             </div>
             <!--Right Col-->
             <div class="w-full md:w-3/5 text-center">
-                <img class="w-full md:w-4/5 z-50" src="hero.png" />
+                <img alt="hero" class="w-full md:w-4/5 z-50" src="hero.png" />
             </div>
         </div>
     </div>
-    <div class="relative mt-12 lg:-mt-24">
+    <div class="relative mt-24 lg:-mt-24">
         <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <g stroke="none" stroke-width="1" fill="#0099ff" fill-rule="evenodd">
@@ -46,7 +46,7 @@
             </g>
         </svg>
     </div>
-    <div class="bg-white py-6 mt-10 mb-24">
+    <div class="bg-white py-6 mb-24">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="sm:text-center">
                 <h2 class="text-lg font-semibold leading-8 text-sky-500">Managements</h2>

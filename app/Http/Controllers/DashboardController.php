@@ -25,7 +25,7 @@ class DashboardController extends Controller
             'name' => 'required|string',
             'major' => 'required|min:3',
             'gender' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         // Retrieve the image from the request

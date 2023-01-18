@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -18,34 +19,40 @@ use App\Http\Controllers\EmailController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+//Auth system
+Route::controller(AuthController::class)->group(function () {
 
-Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
+    Route::get('/login', 'loginPage')->name('login')->middleware('guest');
 
-Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
+    Route::post('/login', 'login')->middleware('guest');
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+    Route::post('/logout', 'logout')->middleware('auth');
 
-Route::post('/register', [RegisterController::class, 'register'])->middleware('guest');
+    Route::get('/register', 'registerPage')->middleware('guest');
+
+    Route::post('/register', 'register')->middleware('guest');
+});
+
+Route::controller(DashboardController::class)->group(function () {
+
+    Route::get('/dashboard', 'index')->middleware('auth');
+
+    Route::post('/add-student', 'store')->middleware('auth');
+
+    Route::put('/students/{id}', 'update')->middleware('auth');
+
+    Route::get('/students/{id}', 'show')->middleware('auth');
+
+    Route::delete('/student-remove/{id}', 'destroy')->middleware('auth');
+});
+
+
 
 Route::get('/students', [StudentController::class, 'index']);
 
 Route::get('/students/major/{major}', [StudentController::class, 'major']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-
-Route::post('/add-student', [DashboardController::class, 'store'])->middleware('auth');
-
-Route::put('/students/{id}', [DashboardController::class, 'update'])->middleware('auth');
-
-Route::get('/students/{id}', [DashboardController::class, 'show'])->middleware('auth');
-
-Route::delete('/student-remove/{id}', [DashboardController::class, 'destroy'])->middleware('auth');
-
 Route::post('/send-email', [EmailController::class, 'sendEmail'])->middleware('auth');
-
-
-
-
