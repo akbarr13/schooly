@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('css/button.css') }}">
     <div class="mt-20">
         <div class="container h-100 px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <!--Left Col-->
@@ -12,10 +13,18 @@
                 <p class="leading-normal text-2xl mb-8">
                     We created this website to make it easier for you to manage students
                 </p>
-                <a href="/students" class="no-underline"><button
+                <a href="/students" class="no-underline">
+                    {{-- <button
                         class="mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                         Look at student list!
-                    </button></a>
+                    </button> --}}
+                    <button class="learn-more">
+                        <span class="circle" aria-hidden="true">
+                            <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text">Look at students list!</span>
+                    </button>
+                </a>
             </div>
             <!--Right Col-->
             <div class="w-full md:w-3/5 text-center">
@@ -135,7 +144,8 @@
                             </svg>
                         </div>
                         <div class="sm:min-w-0 sm:flex-1">
-                            <p class="text-lg font-semibold leading-8 text-gray-900">Comprehensive student data analysis</p>
+                            <p class="text-lg font-semibold leading-8 text-gray-900">Comprehensive student data analysis
+                            </p>
                             <p class="mt-2 text-base leading-7 text-gray-600">Our student management system offers
                                 comprehensive student data analysis, giving you the ability to track student performance and
                                 make data-driven decisions for planning and evaluating learning.</p>

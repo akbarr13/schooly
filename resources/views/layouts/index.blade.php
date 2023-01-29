@@ -10,7 +10,7 @@
     <link rel="icon" href="{{ asset('icon.png') }}">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- CSS only -->
-
+    <link rel="stylesheet" href="{{ asset('css/loginbutton.css') }}">
 </head>
 
 <body>
@@ -99,14 +99,37 @@
             </div>
         @else
             @if ($title != 'Login' && $title != 'Register')
-                <div class="w-3/12 flex justify-end">
-                    <a href="/login"> <button type="button"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Login</button>
-                    </a>
-                </div>
-            @else
-                <div class="w-3/12 flex justify-end">
-                </div>
+                <div class="w-3/12 flex justify-end" >
+                    <div class="buttons">
+                        <a href="/login">
+                            <button class="blob-btn" width="100px">
+                                Login
+                                <span class="blob-btn__inner">
+                                    <span class="blob-btn__blobs">
+                                        <span class="blob-btn__blob"></span>
+                                        <span class="blob-btn__blob"></span>
+                                        <span class="blob-btn__blob"></span>
+                                        <span class="blob-btn__blob"></span>
+                                    </span>
+                                </span>
+                            </button>
+                        </a>
+                        <br />
+
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="position: absolute">
+                            <defs>
+                                <filter id="goo">
+                                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                                    <feColorMatrix in="blur" mode="matrix"
+                                        values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                                    <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+                @else
+                    <div class="w-3/12 flex justify-end">
+                    </div>
             @endif
         @endauth
 
