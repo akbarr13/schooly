@@ -65,6 +65,6 @@ class DatabaseSeeder extends Seeder
         
 
 
-        $students = Student::factory()->count(100000)->create();
+        $students = Student::factory()->count(100)->create();
     }
 }

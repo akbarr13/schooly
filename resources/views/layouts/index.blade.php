@@ -71,7 +71,7 @@
                                 class="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:hover:bg-emerald-100 dark:text-black dark:hover:text-gray">Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/settings"
                                 class="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:hover:bg-emerald-100 dark:text-black dark:hover:text-gray">Settings</a>
                         </li>
                         <li>

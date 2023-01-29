@@ -34,6 +34,11 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'registerPage')->middleware('guest');
 
     Route::post('/register', 'register')->middleware('guest');
+
+    Route::get('/reset-password', 'changePasswordPage')->middleware('auth');
+
+    Route::post('/reset-password', 'changePassword')->middleware('auth');
+
 });
 
 Route::controller(DashboardController::class)->group(function () {
@@ -49,10 +54,12 @@ Route::controller(DashboardController::class)->group(function () {
     Route::delete('/student-remove/{id}', 'destroy')->middleware('auth');
 });
 
-
+Route::view('/settings', 'settings');
 
 Route::get('/students', [StudentController::class, 'index']);
 
 Route::get('/students/major/{major}', [StudentController::class, 'major']);
 
 Route::post('/send-email', [EmailController::class, 'sendEmail'])->middleware('auth');
+
+Route::put('/update-profile', [DashboardController::class, 'userSettings'])->middleware('auth');

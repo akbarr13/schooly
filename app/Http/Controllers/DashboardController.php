@@ -47,6 +47,41 @@ class DashboardController extends Controller
         return redirect('/students');
     }
 
+    public function userSettings(Request $request)
+    {
+        $user = auth()->user();
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'email' => 'required|email',
+            // 'password' => 'required|min:6',
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // if (!empty($request->image)) {
+        //     $image = $request->file('image');
+        //     $input['imagename'] = time() . '.' . $image->extension();
+
+        //     $filePath = public_path('/user-images');
+        //     $img = Image::make($image->path());
+        //     $img->resize(110, 110, function ($const) {
+        //         $const->aspectRatio();
+        //     })->save($filePath . '/' . $input['imagename']);
+
+        //     $filePath = '/user-images';
+        //     $image->move($filePath, $input['imagename']);
+        //     $user->image = $filePath . '/' . $input['imagename'];
+        // }
+        
+        $user->name = $request->input('name');
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+
+        $user->save();
+
+        return redirect('/settings')->with('status', 'Profile has been updated!');
+    }
+
     public function update(Request $request, $id)
     {
         $student = Student::findOrFail($id);
