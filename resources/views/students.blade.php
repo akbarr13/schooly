@@ -1,8 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-<br>
-
+    <br>
     <div
         class="ml-auto mr-auto relative flex flex-col w-5/6 min-w-0 mb-0 break-words bg-white border-0 border-black border-solid shadow-soft-xl rounded-2xl bg-clip-border">
         <div class="p-6  bg-white rounded-t-2xl">
@@ -46,12 +45,15 @@
                                     </div>
                                 </td>
                                 <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                    <a href="/students/major/{{ $student->major_id }}"><p class="mb-0 font-semibold leading-tight text-xs">{{ $student->major->name }}</p></a>
+                                    <a href="/students/major/{{ $student->major_id }}">
+                                        <p class="mb-0 font-semibold leading-tight text-xs">{{ $student->major->name }}
+                                        </p>
+                                    </a>
                                 </td>
                                 <td
                                     class="p-2 leading-normal text-center align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent">
                                     <span
-                                class=" text-xs rounded-1.8 py-2.2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-black">{{ $student->gender }}</span>
+                                        class=" text-xs rounded-1.8 py-2.2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-black">{{ $student->gender }}</span>
                                 </td>
                                 <td
                                     class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">

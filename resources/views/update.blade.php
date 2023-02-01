@@ -37,7 +37,7 @@
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-black" for="file_input">Upload
                         Image
                         File</label>
-                    <input required
+                    <input
                         class="block w-1/3 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         name="image" aria-describedby="file_input_help" id="file_input" type="file">
                     <p class="mt-1 text-sm text-black-500" id="file_input_help">SVG, PNG, JPG or GIF.</p>

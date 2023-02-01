@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="{{ asset('icon.png') }}">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- CSS only -->
+    <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
     <link rel="stylesheet" href="{{ asset('css/loginbutton.css') }}">
 </head>
 
@@ -99,7 +99,7 @@
             </div>
         @else
             @if ($title != 'Login' && $title != 'Register')
-                <div class="w-3/12 flex justify-end" >
+                <div class="w-1/6 flex justify-end">
                     <div class="buttons">
                         <a href="/login">
                             <button class="blob-btn" width="100px">
@@ -115,18 +115,17 @@
                             </button>
                         </a>
                         <br />
-
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="position: absolute">
-                            <defs>
-                                <filter id="goo">
-                                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-                                    <feColorMatrix in="blur" mode="matrix"
-                                        values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
-                                    <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-                                </filter>
-                            </defs>
-                        </svg>
                     </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="position: absolute;" class="">
+                        <defs>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+                            </filter>
+                        </defs>
+                    </svg>
                 @else
                     <div class="w-3/12 flex justify-end">
                     </div>
@@ -136,7 +135,30 @@
 
 
     </header>
-    @yield('content')
+
+    <div class="loader" id="loader"></div>
+    <div class="main-content" id="main-content">
+        @yield('content')
+    </div>
+    <script>
+
+        const loader = document.querySelector(".loader");
+        const mainContent = document.querySelector(".main-content");
+
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                loader.style.display = "none";
+                let i = 0;
+                if (i <= 100) {
+                    setInterval(function() {
+                        i += 10;
+                        mainContent.style.opacity = `${i}%`;
+                    }, 30)
+                }
+
+            }, 1000);
+        });
+    </script>
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
 </body>
 
