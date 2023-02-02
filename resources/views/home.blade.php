@@ -1,34 +1,34 @@
 @extends('layouts.index')
 
 @section('content')
-        <div class="mt-20">
-            <div class="container h-100 px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-                <!--Left Col-->
-                <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-                    <p class="uppercase tracking-loose w-full">School website for you!</p>
-                    <h1 class="my-4 text-5xl font-bold leading-tight">
-                        Useful School Website with CRUD Features
-                    </h1>
-                    <p class="leading-normal text-2xl mb-8">
-                        We created this website to make it easier for you to manage students
-                    </p>
-                    <a href="/students" class="no-underline">
-                        {{-- <button
+    <div class="mt-20">
+        <div class="container h-100 px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+            <!--Left Col-->
+            <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+                <p class="uppercase tracking-loose w-full">School website for you!</p>
+                <h1 class="my-4 text-5xl font-bold leading-tight">
+                    Useful School Website with CRUD Features
+                </h1>
+                <p class="leading-normal text-2xl mb-8">
+                    We created this website to make it easier for you to manage students
+                </p>
+                <a href="/students" class="no-underline">
+                    {{-- <button
                             class="mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                             Look at student list!
                         </button> --}}
-                        <button class="learn-more">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                            </span>
-                            <span class="button-text">Look at students list!</span>
-                        </button>
-                    </a>
-                </div>
-                <!--Right Col-->
-                <div class="w-full md:w-3/5 text-center">
-                    <img alt="hero" class="w-full md:w-4/5 z-50" src="hero.png" />
-                </div>
+                    <button class="learn-more">
+                        <span class="circle" aria-hidden="true">
+                            <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text">Look at students list!</span>
+                    </button>
+                </a>
+            </div>
+            <!--Right Col-->
+            <div class="w-full md:w-3/5 text-center">
+                <lottie-player class="ml-24 mb-24" src="https://assets5.lottiefiles.com/packages/lf20_K7aZUG.json" background="transparent"
+                    speed="1" style="width: 620px; height: 620px;" loop autoplay></lottie-player>
             </div>
         </div>
         <div class="relative mt-24 lg:-mt-24">
@@ -225,5 +225,5 @@
             </div>
         </section>
 
-    <link rel="stylesheet" href="{{ asset('css/button.css') }}">
-@endsection
+        <link rel="stylesheet" href="{{ asset('css/button.css') }}">
+    @endsection

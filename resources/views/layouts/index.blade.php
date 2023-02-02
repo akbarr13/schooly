@@ -135,13 +135,13 @@
 
 
     </header>
-
-    <div class="loader" id="loader"></div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player class="loader mx-auto" id="loader" src="{{ asset('json/loader.json') }}" background="transparent" speed="1" style="width: 300px; height: 300px; display: block; margin-top: 15%;"
+        loop autoplay></lottie-player>
     <div class="main-content" id="main-content">
         @yield('content')
     </div>
     <script>
-
         const loader = document.querySelector(".loader");
         const mainContent = document.querySelector(".main-content");
 
